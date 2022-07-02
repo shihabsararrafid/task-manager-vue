@@ -1,6 +1,6 @@
 <template>
     <div :key="task.id" v-for="task in tasks">
-        <Task @delete-task="deletedTask()" :task="task"></Task>
+        <Task @delete-task="$emit('delete-task',task.id)" :task="task"></Task>
     </div>
 </template>
 <script>
@@ -11,8 +11,8 @@ import Task from './Task.vue';
         tasks: Array
     },
     methods:{
-        deletedTask(){
-            console.log('clicked from one level higher');
+        deletedTask(id){
+           this.$emit('delete-task-new',id);
         }
     },
     components: { Task }

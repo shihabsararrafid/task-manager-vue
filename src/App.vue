@@ -13,6 +13,11 @@ export default {
     Button,
     Tasks
 },
+methods:{
+  deletedTask(id){
+    console.log("logging from app .vue app with the id",id)
+  }
+},
 data(){
   return {
     tasks :[]
@@ -51,7 +56,7 @@ data(){
   <header>
   
 <Home msg="Rafid"></Home>
-    <Header :tasks="tasks"></Header>
+    <Header @delete-task-new="deletedTask" :tasks="tasks"></Header>
   
   </header>
 
