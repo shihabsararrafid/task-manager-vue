@@ -15,7 +15,8 @@ export default {
 },
 methods:{
   deletedTask(id){
-    console.log("logging from app .vue app with the id",id)
+    console.log("logging from app .vue app with the id",id);
+    this.tasks= this.tasks.filter(task =>task.id!==id);
   }
 },
 data(){
