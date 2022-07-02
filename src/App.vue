@@ -4,12 +4,14 @@
 import Home from './components/Home/Home.vue'
 import Header from './components/Home/Header.vue'
 import Button from './components/Home/Button.vue'
+import Tasks from './components/Home/Tasks.vue'
 
 export default {
   components:{
     Home,
     Header,
-    Button
+    Button,
+    Tasks
 },
 data(){
   return {
@@ -49,8 +51,8 @@ data(){
   <header>
   
 <Home msg="Rafid"></Home>
-    <Header></Header>
-   
+    <Header :tasks="tasks"></Header>
+  
   </header>
 
   <main>

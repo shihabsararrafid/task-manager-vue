@@ -1,5 +1,5 @@
 <template>
-    <button v-on:mouseover="onClick()" class="btn">Add task</button>
+    <button @click="onClick()" class="btn">Add task</button>
 </template>
 
 

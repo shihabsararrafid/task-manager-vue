@@ -1,10 +1,20 @@
 <template>
-    <div>
-<h1>To go to versity and join the ct</h1>
+    <div :key="task.id" v-for="task in tasks">
+        <Task @delete-task="deletedTask()" :task="task"></Task>
     </div>
 </template>
 <script>
+import Task from './Task.vue';
  export default {
-    name:'Tasks'
- }
+    name: "Tasks",
+    props: {
+        tasks: Array
+    },
+    methods:{
+        deletedTask(){
+            console.log('clicked from one level higher');
+        }
+    },
+    components: { Task }
+}
 </script>

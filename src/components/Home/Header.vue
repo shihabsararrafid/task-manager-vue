@@ -1,19 +1,26 @@
 
 <template>
     <div>
-        <header :style="{display:flex}"   class="container ">
+        <header tasks="tasks" :style="{display:flex}"   class="container ">
            <div class="newstyle">
              <h1>Task Tracker</h1>
             <Button  class="btn3"></Button>
            </div>
+           <Tasks :tasks="tasks">
+        
+           </Tasks>
         </header>
     </div>
 </template>
 <script>
 import Button from './Button.vue';
+import Tasks from './Tasks.vue';
 export default {
     name: "Header",
-    components: { Button },
+    components: { Button, Tasks },
+    props:{
+        tasks : Array
+    }
     
 }
 </script>
