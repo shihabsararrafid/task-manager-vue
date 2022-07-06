@@ -6,7 +6,7 @@
              <h1>Task Tracker</h1>
             <Button  class="btn3"></Button>
            </div>
-           <Tasks @delete-task="deletedTask" :tasks="tasks">
+           <Tasks @toggle-Reminder="toggleReminder" @delete-task="deletedTask" :tasks="tasks">
         
            </Tasks>
         </header>
@@ -24,7 +24,8 @@ export default {
     },
     data(){
 return{
-    newId :[]
+    newId :[],
+    newId2:[]
 }
     },
     methods:{
@@ -37,8 +38,20 @@ return{
         },
         onClicked(id){
             this.$emit('delete-task-new',id);
+        },
+        toggleReminder(id){
+            //console.log(id);
+            this.newId2=id;
+
+            this.onDoubleClick(this.newId2);
+        },
+        onDoubleClick(id){
+            this.$emit('toggle-reminder',id);
         }
-    }
+
+    },
+     emits:['delete-task']
+    ,
     
 }
 </script>

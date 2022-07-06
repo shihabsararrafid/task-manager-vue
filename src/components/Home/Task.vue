@@ -1,5 +1,5 @@
 <template>
- <div :class="[task.reminder?'reminder':'',task]">
+ <div @dblclick="toggleReminder(task.id)" :class="[task.reminder?'reminder':'',task]">
      <h3>{{task.text}}
      <p><i @click="deleteTask(task.id)" :style="{color:green}" class="fas fa-times"></i></p>
      </h3> 
@@ -17,6 +17,9 @@ export default{
         deleteTask(id){
             this.$emit('delete-task',id);
             
+        },
+        toggleReminder(id){
+            this.$emit('toggle-Reminder',id)
         }
     }
 }
@@ -27,6 +30,7 @@ div{
     margin: 10px;
     padding: 10px;
     border-radius: 1px;
+    cursor: pointer;
 }
 div h3{
     display: flex;

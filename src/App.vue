@@ -17,6 +17,16 @@ methods:{
   deletedTask(id){
     console.log("logging from app .vue app with the id",id);
     this.tasks= this.tasks.filter(task =>task.id!==id);
+  },
+  toggleReminder(id){
+    this.tasks.map(task=>{
+      if(task.id===id){
+        console.log(task.reminder);
+task.reminder = !task.reminder;
+console.log(task.reminder);
+      }
+     
+    })
   }
 },
 data(){
@@ -57,7 +67,7 @@ data(){
   <header>
   
 <Home msg="Rafid"></Home>
-    <Header @delete-task-new="deletedTask" :tasks="tasks"></Header>
+    <Header @toggle-reminder="toggleReminder" @delete-task-new="deletedTask" :tasks="tasks"></Header>
   
   </header>
 
